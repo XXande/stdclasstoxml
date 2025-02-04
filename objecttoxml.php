@@ -36,7 +36,7 @@ class ObjectAndXML {
 				$this->getArray2XML($xml, $key, $value);
 			}
  
-			if (is_string($value)) {
+			if (is_string($value) || is_numeric($value) || is_integer($value) ) {
 				$xml->writeElement($key, $value);
 			}
 		}
@@ -44,7 +44,7 @@ class ObjectAndXML {
  
 	private function getArray2XML(XMLWriter $xml, $keyParent, $data) {
 		foreach($data as $key => $value) {
-			if (is_string($value)) {
+			if (is_string($value) || is_numeric($value) || is_integer($value) ) {
 				$xml->writeElement($keyParent, $value);
 				continue;
 			}
